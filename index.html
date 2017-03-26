@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News API Demo</title>
+	<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="news" data-source="ars-technica"></div>
+
+  <script>
+		function displayNews() {
+      var news = $("#news");
+	    var source = news.attr("data-source");
+      var queryURL = 'https://newsapi.org/v1/articles?source=' + source + '&apiKey=f5986ec85ed143c09f4febdea0fa9700';
+
+	    $.ajax({
+	      url: queryURL,
+	      method: 'GET'
+	    }).done(function(result) {
+        // Get the articles array from the result
+        console.log(result.articles)
+
+        // This appends just the first article's title to <div id="news" data-source="ars-technica"></div> as an
+        // example. You might want to loop through the articles array, for example, and display the title for each.
+        // I'll let you try to figure that out on your own :-D
+        news.append(result.articles[0].title)
+      });
+		}
+
+    // You want to execute your function here within the JS <script> block
+    displayNews();
+	</script>
+</body>
+</html>
