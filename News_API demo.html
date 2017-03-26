@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News API Demo</title>
+	<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <div>
+  	 displayNews();
+  </div>
+   
+    <script> function displayNews(){
+    var news= $(this).attr("data-name");
+    var queryURL = "https://newsapi.org/v1/articles?source="+ news + "&apiKey=f5986ec85ed143c09f4febdea0fa9700";
+    console.log(queryURL); 
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    });</script>
+</body>
+</html>
