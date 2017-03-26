@@ -8,6 +8,7 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Added a new div in the html with an id and a data-source attribute -->
   <div id="news" data-source="ars-technica"></div>
 
   <script>
@@ -24,8 +25,8 @@
         console.log(result.articles)
 
         // This appends just the first article's title to <div id="news" data-source="ars-technica"></div> as an
-        // example. You might want to loop through the articles array, for example, and display the title for each.
-        // I'll let you try to figure that out on your own :-D
+        // example. You might want to loop through the articles array and display the title for each.
+        // I'll leave that to you, though
         news.append(result.articles[0].title)
       });
 		}
